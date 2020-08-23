@@ -1,0 +1,12 @@
+echo "* Creating ansible user"
+useradd ansible -m -s /bin/bash
+mkdir /home/ansible/.ssh
+chown ansible.ansible /home/ansible/.ssh
+echo "* Setting up authorized_keys file"
+FILE=/home/ansible/.ssh/authorized_keys
+cat <<EOM >>$FILE
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDFFTlJxNxfMsZaNSvlRwTQx1DmXm/UdeY8CW07Co4d1KAXSxQ83DQK65/q0Gt1AmAJcWrYpyWAuiWGHm9ruue4pPkSfvZVeFKnz0ocSQIaTFJVsHR433UvKSemRNKye/b2SLnS5IIs2C7C/zPq4kwm86pMjdrM+wtfbiAmAvm97vpl+jStl0CGx4RiO1RZ8r3wMrw7EUdX4kfsdj+cgxQm3hiNOK6U+4DDRKUoul0ccrfwkw2cG7oYgdTP3UkLkM47PEIra7fgO4KtxycE6LSZ8AkUtPqMTc3BwVHC+FSe16FPQ+ZUfI4sS1BNqxsmFX6RgKWHMURRw582PheQ/j2TtaXWWmk1fJp5n8eQA2o0JNq5kPouG7x9RsOw8nuY9qJoP/2jlgBox/G8rA3uXWBp9vAEKDE+Z747+DEPcv1QOXm+SmXAwLzzAVfc7toL9x+btM2FmtPVLFPGhCrmdLZx0p2uj09XRoeVFxQiL6ouCDrvtBzAdT0j58NsiUK+A0+Hm9chlAC5pcyLeSzOnXicO4uTSBsXq+ckTPx0XfVacxZeabQaEvLRSlTSmUo5FMOOYktMmFviWjYwMAbaX88prjnfGAS42XerkVFX/s4i18ZBuZO5Ul7AbWXrXMHTSzRB+WZiqlXKf2uQJjoU8BIrC7XpgiN5yne57gfSEYHknw== rvl@ub07
+EOM
+chmod 600 /home/ansible/.ssh/authorized_keys
+chown ansible.ansible /home/ansible/.ssh/authorized_keys
+echo "* Done"

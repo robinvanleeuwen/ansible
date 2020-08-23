@@ -1,0 +1,18 @@
+- hosts: all
+  tasks:
+  - name: Manage authorized keys for marcel
+    authorized_key:
+      user: rvl
+      state: present
+      key: https://raw.githubusercontent.com/robinvanleeuwen/public_keys/master/marcel.key
+    become: yes
+    become_method: sudo
+
+  - name: Manage authorized keys for rvl
+    authorized_key:
+      user: rvl
+      state: present
+      key: https://raw.githubusercontent.com/robinvanleeuwen/public_keys/master/rvl.key
+    become: yes
+    become_method: sudo
+

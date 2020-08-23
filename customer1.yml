@@ -1,0 +1,11 @@
+- hosts: customer1
+  tasks:
+    - debug:
+        msg: Customer 1
+
+    - import_tasks: task_authorized_keys.yml
+
+    - package:
+        name: apache2
+        state: present
+

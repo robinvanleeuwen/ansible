@@ -1,0 +1,12 @@
+- hosts: customer2
+  tasks:
+    - debug:
+        msg: Customer 2
+
+    - import_tasks: task_authorized_keys.yml
+
+- hosts: 192.168.33.103
+  tasks:
+    - package:
+        name: ntpdate
+        state: absent

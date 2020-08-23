@@ -1,0 +1,8 @@
+- name: Set authorized keys taken from url
+  authorized_key:
+    user: rvl
+    state: present
+    key: https://raw.githubusercontent.com/robinvanleeuwen/public_keys/master/rvl.key
+  become: yes
+  become_method: sudo
+
